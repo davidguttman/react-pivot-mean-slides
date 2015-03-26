@@ -1,7 +1,9 @@
 var pages = [
   require('./no-frills-table'),
   require('./no-frills-plus-computed'),
-  require('./no-frills-rg')
+  require('./no-frills-rg'),
+  require('./grouping')
+  // require('./2')
 ]
 
 window.onhashchange = function() {window.location.reload()}

@@ -17,6 +17,7 @@ module.exports = function() {
   var reduce = function(row, memo) {
     memo = row
     memo.profit = toNumber(row.grossWorldwide) - toNumber(row.budget)
+    memo.tomatoCost = toNumber(row.budget) / toNumber(row.rottenTomatoesScore)
     return memo
   }
 
@@ -25,7 +26,9 @@ module.exports = function() {
     {title: 'Genre', value: 'genre'},
     {title: 'Budget', value: function(row) {return toNumber(row.budget)}, template: fMoney},
     {title: 'Gross', value: function(row) {return toNumber(row.grossWorldwide)}, template: fMoney},
-    {title: 'Profit', value: 'profit', template: fMoney}
+    {title: 'Profit', value: 'profit', template: fMoney},
+    {title: 'Tomatoes', value: 'rottenTomatoesScore'},
+    {title: '$/Tomato', value: 'tomatoCost', template: fMoney}
   ]
 
   fetch(url, function(err, rawData) {
