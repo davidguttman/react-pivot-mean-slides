@@ -2,7 +2,8 @@ var pages = [
   require('./no-frills-table'),
   require('./no-frills-plus-computed'),
   require('./no-frills-rg'),
-  require('./grouping')
+  require('./grouping'),
+  require('./grouping-calc')
   // require('./2')
 ]
 
