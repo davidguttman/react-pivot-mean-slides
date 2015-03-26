@@ -1,82 +1,20 @@
-var ss = require('simple-statistics')
-var accounting = require('accounting')
-var ReactPivot = require('react-pivot/load')
-
-var fetch = require('./fetch')
-
-var url = 'https://docs.google.com:443/spreadsheet/pub'
-  + '?key=0ApW-j0QNGJesdDMwbmhqcFFSVFdfUXR0Vy1XeVdJX1E'
-  + '&single=true&gid=28&output=csv'
-
-var dimensions = [
-  {title: 'Genre', value: 'genre'},
-  {title: 'Story', value: 'story'},
-  {title: 'Studio', value: 'studio'},
-  {title: 'Title', value: 'title'}
+var pages = [
+  require('./1'),
+  require('./2')
 ]
 
-var reduce = function(row, memo) {
-  memo.count = memo.count || 0
-  memo.count += 1
+window.onhashchange = function() {window.location.reload()}
 
-  memo.budgets = memo.budgets || []
-  memo.budgets.push(toNumber(row.budget))
+var hash = window.location.hash.replace(/^#\/?/g, '')
+if (!hash) window.location = '#/1'
 
-  memo.grosses = memo.grosses || []
-  memo.grosses.push(toNumber(row.grossWorldwide))
+var nPage = hash - 1
+pages[nPage]()
 
-  memo.scores = memo.scores || []
-  memo.scores.push(toNumber(row.rottenTomatoesScore))
-
-  memo.budgetsSum = ss.sum(memo.budgets)
-  memo.budgetsAvg = ss.mean(memo.budgets)
-
-  memo.grossesSum = ss.sum(memo.grosses)
-  memo.grossesAvg = ss.mean(memo.grosses)
-
-  memo.profitSum = memo.grossesSum - memo.budgetsSum
-  memo.profitAvg = memo.profitSum / memo.count
-
-  memo.scoresSum = ss.sum(memo.scores)
-  memo.scoresAvg = ss.mean(memo.scores)
-
-  memo.scoreCost = memo.budgetsSum / memo.scoresSum
-
-  return memo
-}
-
-var calculations = [
-  {title: 'Count', value: 'count'},
-  {title: 'Budget Total', value: 'budgetsSum', template: fMoney},
-  {title: 'Budget Avg', value: 'budgetsAvg', template: fMoney},
-  {title: 'Gross Total', value: 'grossesSum', template: fMoney},
-  {title: 'Gross Avg', value: 'grossesAvg', template: fMoney},
-  {title: 'Profit Total', value: 'profitSum', template: fMoney},
-  {title: 'Profit Avg', value: 'profitAvg', template: fMoney},
-  {title: 'Score Avg', value: 'scoresAvg', template: fNumber},
-  {title: 'Score Cost', value: 'scoreCost', template: fMoney}
-]
-
-fetch(url, function(err, rawData) {
-  if (err) return console.error(err)
-  console.log('rawData', rawData)
-
-  ReactPivot(document.body, {
-    rows: rawData,
-    dimensions: dimensions,
-    reduce: reduce,
-    calculations: calculations
-  })
+window.addEventListener('keyup', function(evt) {
+  if (evt.keyIdentifier === 'Left') return prevPage()
+  if (evt.keyIdentifier === 'Right') return nextPage()
 })
 
-function fMoney (val) {
-  return accounting.formatMoney(val)
-}
-
-function fNumber (val) {
-  return accounting.formatNumber(val)
-}
-
-function toNumber (str) {
-  return parseFloat(str.replace(/,/g, ''))
-}
+function nextPage () { if (pages[nPage + 1]) window.location = '#/' + (nPage+2) }
+function prevPage () { if (pages[nPage - 1]) window.location = '#/' + nPage }
