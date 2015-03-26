@@ -1,5 +1,5 @@
 var pages = [
-  require('./1'),
+  require('./no-frills-table'),
   require('./2')
 ]
 

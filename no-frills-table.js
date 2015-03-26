@@ -20,6 +20,8 @@ module.exports = function() {
   }
 
   var calculations = [
+    {title: 'Studio', value: 'studio'},
+    {title: 'Genre', value: 'genre'},
     {title: 'Budget', value: function(row) {return toNumber(row.budget)}, template: fMoney},
     {title: 'Gross', value: function(row) {return toNumber(row.grossWorldwide)}, value: 'grossWorldwide', template: fMoney}
   ]
