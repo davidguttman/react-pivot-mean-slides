@@ -13,21 +13,42 @@ module.exports = function() {
   var dimensions = [
     {title: 'Title', value: 'title', template: function(val, row) {
       return '<a href="'+row.source+'">'+val+'</a>'
-    }}
+    }},
+    {title: 'Studio', value: 'studio'},
+    {title: 'Genre', value: 'genre'},
+    {title: 'Story', value: 'story'}
   ]
 
   var reduce = function(row, memo) {
-    memo = row
-    memo.profit = toNumber(row.grossWorldwide) - toNumber(row.budget)
-    memo.tomatoCost = toNumber(row.budget) / toNumber(row.rottenTomatoesScore)
+    memo.count = memo.count || 0
+    memo.count += 1
+
+    memo.budget = memo.budget || 0
+    memo.budget += toNumber(row.budget)
+
+    memo.gross = memo.gross || 0
+    memo.gross += toNumber(row.grossWorldwide)
+
+    memo.profit = memo.profit || 0
+    memo.profit += toNumber(row.grossWorldwide) - toNumber(row.budget)
+
+    // memo.rottenTomatoesScore = memo.rottenTomatoesScore || 0
+    // memo.rottenTomatoesScore += toNumber(row.rottenTomatoesScore)
+
+    if (memo.count === 1) {
+      memo.rottenTomatoesScore = toNumber(row.rottenTomatoesScore)
+      memo.tomatoCost = memo.budget / memo.rottenTomatoesScore
+    } else {
+      memo.rottenTomatoesScore = '???'
+      memo.tomatoCost = '???'
+    }
+
     return memo
   }
 
   var calculations = [
-    {title: 'Studio', value: 'studio'},
-    {title: 'Genre', value: 'genre'},
-    {title: 'Budget', value: function(row) {return toNumber(row.budget)}, template: fMoney},
-    {title: 'Gross', value: function(row) {return toNumber(row.grossWorldwide)}, template: fMoney},
+    {title: 'Budget', value: 'budget', template: fMoney},
+    {title: 'Gross', value: 'gross', template: fMoney},
     {title: 'Profit', value: 'profit', template: rgMoney},
     {title: 'Tomatoes', value: 'rottenTomatoesScore'},
     {title: '$/Tomato', value: 'tomatoCost', template: fMoney}
@@ -42,12 +63,13 @@ module.exports = function() {
       dimensions: dimensions,
       reduce: reduce,
       calculations: calculations,
-      activeDimensions: ['Title'],
-      sortBy: 'Title'
+      activeDimensions: ['Studio'],
+      sortBy: 'Studio'
     })
   })
 
   function fMoney (val) {
+    if (typeof val === 'string') return val
     return accounting.formatMoney(val)
   }
 

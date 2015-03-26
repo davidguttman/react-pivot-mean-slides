@@ -14,7 +14,7 @@
     "browserify": "^9.0.3",
     "csv": "^0.3.6",
     "react": "^0.12.2",
-    "react-pivot": "^1.9.0",
+    "react-pivot": "^1.9.1",
     "simple-statistics": "^0.9.1",
     "superagent": "^1.1.0"
   },
