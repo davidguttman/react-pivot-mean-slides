@@ -1,0 +1,24 @@
+{
+  "name": "react-pivot-motm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "beefy index.js"
+  },
+  "author": "David Guttman <david@guttman.io> (http://davidguttman.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "beefy": "^2.1.3",
+    "browserify": "^9.0.3",
+    "csv": "^0.3.6",
+    "react": "^0.12.2",
+    "react-pivot": "^1.9.0",
+    "simple-statistics": "^0.9.1",
+    "superagent": "^1.1.0"
+  },
+  "devDependencies": {
+    "watchify": "^2.6.0"
+  }
+}
