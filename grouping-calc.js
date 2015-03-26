@@ -35,6 +35,10 @@ module.exports = function() {
     memo.rottenTomatoesScore = memo.rottenTomatoesScore || 0
     memo.rottenTomatoesScore += toNumber(row.rottenTomatoesScore)
 
+    memo.budgetAvg = memo.budget / memo.count
+    memo.grossAvg = memo.gross / memo.count
+    memo.profitAvg = memo.profit / memo.count
+
     memo.tomatoAvg = memo.rottenTomatoesScore / memo.count
     memo.tomatoCost = memo.budget / memo.rottenTomatoesScore
 
@@ -43,8 +47,11 @@ module.exports = function() {
 
   var calculations = [
     {title: 'Budget', value: 'budget', template: fMoney},
+    {title: 'Budget Avg', value: 'budgetAvg', template: fMoney},
     {title: 'Gross', value: 'gross', template: fMoney},
+    {title: 'Gross Avg', value: 'grossAvg', template: fMoney},
     {title: 'Profit', value: 'profit', template: rgMoney},
+    {title: 'Profit Avg', value: 'profitAvg', template: rgMoney},
     {title: 'Tomatoes', value: 'tomatoAvg', template: fNumber},
     {title: '$/Tomato', value: 'tomatoCost', template: fMoney}
   ]
