@@ -1,0 +1,24 @@
+body {
+  font-family: "garamond"
+}
+
+.reactPivot-paginate {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.reactPivot-results .reactPivot-pageNumber {
+  padding: 8px;
+  border: 1px solid #eee;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.reactPivot-results .reactPivot-pageNumber.is-selected {
+  background: #eee;
+}
+
+.right {
+  text-align: right;
+}

@@ -1,3 +1,5 @@
+require('./style.css')
+
 var pages = [
   require('./no-frills-table'),
   require('./no-frills-plus-computed'),

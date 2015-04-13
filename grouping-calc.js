@@ -46,14 +46,14 @@ module.exports = function() {
   }
 
   var calculations = [
-    {title: 'Budget', value: 'budget', template: fMoney},
-    {title: 'Budget Avg', value: 'budgetAvg', template: fMoney},
-    {title: 'Gross', value: 'gross', template: fMoney},
-    {title: 'Gross Avg', value: 'grossAvg', template: fMoney},
-    {title: 'Profit', value: 'profit', template: rgMoney},
-    {title: 'Profit Avg', value: 'profitAvg', template: rgMoney},
-    {title: 'Tomatoes', value: 'tomatoAvg', template: fNumber},
-    {title: '$/Tomato', value: 'tomatoCost', template: fMoney}
+    {title: 'Budget', className: 'right', value: 'budget', template: fMoney},
+    {title: 'Budget Avg', className: 'right', value: 'budgetAvg', template: fMoney},
+    {title: 'Gross', className: 'right', value: 'gross', template: fMoney},
+    {title: 'Gross Avg', className: 'right', value: 'grossAvg', template: fMoney},
+    {title: 'Profit', className: 'right', value: 'profit', template: rgMoney},
+    {title: 'Profit Avg', className: 'right', value: 'profitAvg', template: rgMoney},
+    {title: 'Tomatoes', className: 'right', value: 'tomatoAvg', template: fNumber},
+    {title: '$/Tomato', className: 'right', value: 'tomatoCost', template: fMoney}
   ]
 
   fetch(url, function(err, rawData) {

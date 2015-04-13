@@ -1,4 +1,5 @@
 module.exports = function() {
+  require('./hide-advanced')
 
   var ss = require('simple-statistics')
   var accounting = require('accounting')
@@ -54,3 +55,4 @@ module.exports = function() {
   }
 
 }
+

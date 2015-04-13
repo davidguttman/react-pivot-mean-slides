@@ -1,4 +1,5 @@
 module.exports = function() {
+  require('./hide-advanced')
 
   var ss = require('simple-statistics')
   var accounting = require('accounting')
@@ -26,11 +27,11 @@ module.exports = function() {
   var calculations = [
     {title: 'Studio', value: 'studio'},
     {title: 'Genre', value: 'genre'},
-    {title: 'Budget', value: function(row) {return toNumber(row.budget)}, template: fMoney},
-    {title: 'Gross', value: function(row) {return toNumber(row.grossWorldwide)}, template: fMoney},
-    {title: 'Profit', value: 'profit', template: rgMoney},
-    {title: 'Tomatoes', value: 'rottenTomatoesScore'},
-    {title: '$/Tomato', value: 'tomatoCost', template: fMoney}
+    {title: 'Budget', className: 'right', value: function(row) {return toNumber(row.budget)}, template: fMoney},
+    {title: 'Gross', className: 'right', value: function(row) {return toNumber(row.grossWorldwide)}, template: fMoney},
+    {title: 'Profit', className: 'right', value: 'profit', template: rgMoney},
+    {title: 'Tomatoes', className: 'right', value: 'rottenTomatoesScore'},
+    {title: '$/Tomato', className: 'right', value: 'tomatoCost', template: fMoney}
   ]
 
   fetch(url, function(err, rawData) {
