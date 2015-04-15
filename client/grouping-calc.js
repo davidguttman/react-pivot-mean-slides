@@ -6,9 +6,7 @@ module.exports = function() {
 
   var fetch = require('./fetch')
 
-  var url = 'https://docs.google.com:443/spreadsheet/pub'
-    + '?key=0ApW-j0QNGJesdDMwbmhqcFFSVFdfUXR0Vy1XeVdJX1E'
-    + '&single=true&gid=28&output=csv'
+  var url = '/data'
 
   var dimensions = [
     {title: 'Title', value: 'title', template: function(val, row) {

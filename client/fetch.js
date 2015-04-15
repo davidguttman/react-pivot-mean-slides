@@ -1,49 +1,17 @@
-var csv     = require('csv')
-var request = require('superagent')
+var jsonist = require('jsonist')
 
 module.exports = function(url, cb) {
+  if (!url.match(/^http/)) url = window.location.origin + url
 
-  cRequest(url, function(err, body) {
-    if (err) return cb(err)
-
-    csvToArray(body, function(err, arr) {
-      if (err) return cb(err)
-      var json = csvArrayToJSON(arr)
-      cb(null, json)
-    })
-  })
-
-}
-
-module.exports.cRequest = cRequest
-
-function csvToArray (text, cb) {
-  csv()
-    .from.string(text)
-    .to.array(function(array) {
-      cb(null, array)
-    })
-}
-
-function csvArrayToJSON (arr) {
-  var columns = arr.shift()
-  return arr.map(function(row) {
-    var obj = {}
-    row.forEach(function(val, i) {
-      var col = columns[i]
-      obj[col] = val
-    })
-    return obj
-  })
+  cRequest(url, cb)
 }
 
 function cRequest (url, cb) {
-  if (localStorage[url]) return cb(null, localStorage[url])
+  if (localStorage[url]) return cb(null, JSON.parse(localStorage[url]))
 
-  request(url, function(err, res) {
+  jsonist.get(url, function(err, res) {
     if (err) return cb(err)
-    localStorage[url] = res.text
-    cb(null, res.text)
+    localStorage[url] = JSON.stringify(res)
+    cb(null, res)
   })
-
 }

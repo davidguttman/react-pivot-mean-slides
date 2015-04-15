@@ -21,6 +21,7 @@
     "express": "^4.12.3",
     "hyperscript": "^1.4.6",
     "insert-css": "^0.2.0",
+    "jsonist": "^1.0.1",
     "mongoose": "^4.0.1",
     "react": "^0.12.2",
     "react-pivot": "^1.9.1",

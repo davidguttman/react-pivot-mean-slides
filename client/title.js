@@ -1,4 +1,4 @@
-var cRequest = require('./fetch').cRequest
+var fetch = require('./fetch')
 
 module.exports = function() {
   var h = require('hyperscript')
@@ -27,18 +27,18 @@ module.exports = function() {
       'z-index': -1,
       'border': 'none',
       'opacity': 0.5,
-      'font-family': 'courier new'
+      'font-family': 'courier new',
+      'pointer-events': 'none'
     }
   })
 
   document.body.appendChild(ta)
 
-  var url = 'https://docs.google.com:443/spreadsheet/pub'
-    + '?key=0ApW-j0QNGJesdDMwbmhqcFFSVFdfUXR0Vy1XeVdJX1E'
-    + '&single=true&gid=28&output=csv'
+  var url = '/data'
 
-  cRequest(url, function(err, data) {
+  fetch(url, function(err, parsed) {
     if (err) return console.error(err)
+    var data = JSON.stringify(parsed)
     var i = 0
     var interval = setInterval(function() {
       ta.value += data[i]
