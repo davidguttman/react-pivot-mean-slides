@@ -1,12 +1,16 @@
 require('./style.css')
 
+document.title = 'Data-Centric Views'
+
 var pages = [
+  require('./jsla'),
+  require('./title'),
+  require('./sheet'),
   require('./no-frills-table'),
   require('./no-frills-plus-computed'),
   require('./no-frills-rg'),
   require('./grouping'),
   require('./grouping-calc')
-  // require('./2')
 ]
 
 window.onhashchange = function() {window.location.reload()}

@@ -15,6 +15,8 @@ module.exports = function(url, cb) {
 
 }
 
+module.exports.cRequest = cRequest
+
 function csvToArray (text, cb) {
   csv()
     .from.string(text)

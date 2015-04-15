@@ -1,5 +1,11 @@
+html {
+  padding: 0;
+}
+
 body {
-  font-family: "garamond"
+  font-family: "garamond";
+  margin: 0;
+  background: #fefefd;
 }
 
 .reactPivot-paginate {
