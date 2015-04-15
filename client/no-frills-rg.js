@@ -17,16 +17,16 @@ module.exports = function() {
 
   var reduce = function(row, memo) {
     memo = row
-    memo.profit = toNumber(row.grossWorldwide) - toNumber(row.budget)
-    memo.tomatoCost = toNumber(row.budget) / toNumber(row.rottenTomatoesScore)
+    memo.profit = (row.grossWorldwide) - (row.budget)
+    memo.tomatoCost = (row.budget) / (row.rottenTomatoesScore)
     return memo
   }
 
   var calculations = [
     {title: 'Studio', value: 'studio'},
     {title: 'Genre', value: 'genre'},
-    {title: 'Budget', className: 'right', value: function(row) {return toNumber(row.budget)}, template: fMoney},
-    {title: 'Gross', className: 'right', value: function(row) {return toNumber(row.grossWorldwide)}, template: fMoney},
+    {title: 'Budget', className: 'right', value: 'budget', template: fMoney},
+    {title: 'Gross', className: 'right', value: 'grossWorldwide', template: fMoney},
     {title: 'Profit', className: 'right', value: 'profit', template: rgMoney},
     {title: 'Tomatoes', className: 'right', value: 'rottenTomatoesScore'},
     {title: '$/Tomato', className: 'right', value: 'tomatoCost', template: fMoney}
@@ -52,10 +52,6 @@ module.exports = function() {
 
   function fNumber (val) {
     return accounting.formatNumber(val)
-  }
-
-  function toNumber (str) {
-    return parseFloat(str.replace(/,/g, ''))
   }
 
   function rgMoney (val) {

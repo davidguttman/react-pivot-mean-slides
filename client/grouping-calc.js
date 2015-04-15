@@ -22,16 +22,16 @@ module.exports = function() {
     memo.count += 1
 
     memo.budget = memo.budget || 0
-    memo.budget += toNumber(row.budget)
+    memo.budget += row.budget
 
     memo.gross = memo.gross || 0
-    memo.gross += toNumber(row.grossWorldwide)
+    memo.gross += row.grossWorldwide
 
     memo.profit = memo.profit || 0
-    memo.profit += toNumber(row.grossWorldwide) - toNumber(row.budget)
+    memo.profit += row.grossWorldwide - row.budget
 
     memo.rottenTomatoesScore = memo.rottenTomatoesScore || 0
-    memo.rottenTomatoesScore += toNumber(row.rottenTomatoesScore)
+    memo.rottenTomatoesScore += row.rottenTomatoesScore
 
     memo.budgetAvg = memo.budget / memo.count
     memo.grossAvg = memo.gross / memo.count
@@ -75,10 +75,6 @@ module.exports = function() {
 
   function fNumber (val) {
     return accounting.formatNumber(val)
-  }
-
-  function toNumber (str) {
-    return parseFloat(str.replace(/,/g, ''))
   }
 
   function rgMoney (val) {
