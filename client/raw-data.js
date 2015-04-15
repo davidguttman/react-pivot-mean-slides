@@ -32,6 +32,7 @@ module.exports = function() {
       ta.value += data[i++]
       ta.value += data[i++]
       ta.value += data[i++]
+      ta.value += data[i++]
 
       if (i < data.length) raf(addNext)
     }

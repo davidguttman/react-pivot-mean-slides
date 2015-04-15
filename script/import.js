@@ -10,6 +10,11 @@ movies.forEach(function(m) {
   console.log('total', total)
 
   m._id = ['2011', m.title].join('!')
+  var toRemove = ['audienceScore', 'nTheatersOpening', 'usBoxOfficeAvgOpeningWeekend', 'grossDomestic', 'grossForeign', 'profitability', 'oscar', 'bafta', 'source']
+  toRemove.forEach(function(k) {
+    m[k] = undefined
+  })
+
   var doc = new Movie(m)
   doc.save(function(err) {
     if (err) return console.error(err)

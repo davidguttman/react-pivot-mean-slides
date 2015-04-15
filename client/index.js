@@ -6,6 +6,7 @@ var pages = [
   require('./jsla'),
   require('./title'),
   require('./raw-data'),
+  require('./quick-dirty'),
   require('./no-frills-table'),
   require('./no-frills-plus-computed'),
   require('./no-frills-rg'),
