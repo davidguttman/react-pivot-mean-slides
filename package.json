@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "beefy index.js"
+    "watch-js": "watchify client/index.js -o public/main.js -dv",
+    "watch-server": "supervisor -n exit -i public,client index.js",
+    "dev": "npm run watch-js & npm run watch-server"
   },
   "author": "David Guttman <david@guttman.io> (http://davidguttman.com/)",
   "license": "MIT",
@@ -14,12 +16,16 @@
     "browserify": "^9.0.3",
     "cssify": "^0.7.0",
     "csv": "^0.3.6",
+    "ecstatic": "^0.7.3",
+    "express": "^4.12.3",
     "hyperscript": "^1.4.6",
     "insert-css": "^0.2.0",
+    "mongoose": "^4.0.1",
     "react": "^0.12.2",
     "react-pivot": "^1.9.1",
     "simple-statistics": "^0.9.1",
-    "superagent": "^1.1.0"
+    "superagent": "^1.1.0",
+    "supervisor": "^0.6.0"
   },
   "devDependencies": {
     "watchify": "^2.6.0"

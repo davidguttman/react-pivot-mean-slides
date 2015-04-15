@@ -1,30 +1,10 @@
-require('./style.css')
+var app = require('./server')
 
-document.title = 'Data-Centric Views'
+var server = app.listen(3000, function () {
 
-var pages = [
-  require('./jsla'),
-  require('./title'),
-  require('./sheet'),
-  require('./no-frills-table'),
-  require('./no-frills-plus-computed'),
-  require('./no-frills-rg'),
-  require('./grouping'),
-  require('./grouping-calc')
-]
+  var host = server.address().address;
+  var port = server.address().port;
 
-window.onhashchange = function() {window.location.reload()}
+  console.log('Example app listening at http://%s:%s', host, port);
 
-var hash = window.location.hash.replace(/^#\/?/g, '')
-if (!hash) window.location = '#/1'
-
-var nPage = hash - 1
-pages[nPage]()
-
-window.addEventListener('keyup', function(evt) {
-  if (evt.keyIdentifier === 'Left') return prevPage()
-  if (evt.keyIdentifier === 'Right') return nextPage()
-})
-
-function nextPage () { if (pages[nPage + 1]) window.location = '#/' + (nPage+2) }
-function prevPage () { if (pages[nPage - 1]) window.location = '#/' + nPage }
+});
