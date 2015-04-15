@@ -5,6 +5,7 @@ document.title = 'Data-Centric Views'
 var pages = [
   require('./jsla'),
   require('./title'),
+  require('./raw-data'),
   require('./no-frills-table'),
   require('./no-frills-plus-computed'),
   require('./no-frills-rg'),

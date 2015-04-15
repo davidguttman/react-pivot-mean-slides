@@ -23,6 +23,7 @@
     "insert-css": "^0.2.0",
     "jsonist": "^1.0.1",
     "mongoose": "^4.0.1",
+    "raf": "^2.0.4",
     "react": "^0.12.2",
     "react-pivot": "^1.9.1",
     "simple-statistics": "^0.9.1",
