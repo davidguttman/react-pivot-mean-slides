@@ -15,6 +15,7 @@
 * Grouping
   * not all columns make sense as a sum: need to do an average
   * existing computed columns need to be redone: can't sum averages/ctr etc...
+  * can now add additional "average" columns that only make sense for groups
 
 * Show column hiding
 * CSV Export

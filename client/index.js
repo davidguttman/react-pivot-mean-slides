@@ -18,7 +18,10 @@ var pages = [
   require('./no-frills-rg'),
   require('./needs-d'),
   require('./grouping'),
-  require('./grouping-calc')
+  require('./grouping-calc'),
+  require('./final-code'),
+  require('./react-pivot'),
+  require('./thankyou'),
 ]
 
 window.onhashchange = function() {window.location.reload()}
