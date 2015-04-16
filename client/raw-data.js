@@ -28,13 +28,13 @@ module.exports = function() {
 
     raf(addNext)
 
+    var speed = 20
+    var maxChars = 1000
     function addNext () {
-      ta.value += data[i++]
-      ta.value += data[i++]
-      ta.value += data[i++]
-      ta.value += data[i++]
+      ta.value += data.substr(i, speed)
+      i += speed
 
-      if (i < data.length) raf(addNext)
+      if (i < maxChars) raf(addNext)
     }
   })
 }

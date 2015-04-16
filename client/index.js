@@ -6,10 +6,17 @@ var pages = [
   require('./jsla'),
   require('./title'),
   require('./raw-data'),
+  require('./stream-code'),
+  require('./stream-gif'),
+  require('./raw-data'),
   require('./quick-dirty'),
+  require('./needs-a'),
   require('./no-frills-table'),
+  require('./needs-b'),
   require('./no-frills-plus-computed'),
+  require('./needs-c'),
   require('./no-frills-rg'),
+  require('./needs-d'),
   require('./grouping'),
   require('./grouping-calc')
 ]

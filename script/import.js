@@ -12,8 +12,7 @@ movies.forEach(function(m) {
 
   m._id = ['2011', m.title].join('!')
   var toRemove = ['audienceScore', 'nTheatersOpening', 'usBoxOfficeAvgOpeningWeekend', 
-    'grossDomestic', 'grossForeign', 'profitability', 'oscar', 'bafta', 
-    'source', 'openingWeekend']
+    'grossDomestic', 'grossForeign', 'profitability', 'oscar', 'bafta', 'openingWeekend']
   toRemove.forEach(function(k) {
     delete m[k]
   })
