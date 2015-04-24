@@ -6,9 +6,9 @@ var total = 0
 var saved = 0
 
 movies.forEach(function(m) {
-  console.log('m', m)
+  // console.log('m', m)
   total += 1
-  console.log('total', total)
+  // console.log('total', total)
 
   m._id = ['2011', m.title].join('!')
   var toRemove = ['audienceScore', 'nTheatersOpening', 'usBoxOfficeAvgOpeningWeekend', 
@@ -19,7 +19,7 @@ movies.forEach(function(m) {
 
   var numbers = ['rottenTomatoesScore', 'grossWorldwide', 'budget']
   numbers.forEach(function(k) {
-    console.log('k', k)
+    // console.log('k', k)
     var val = m[k]
     if (!val) console.log('m', m)
     m[k] = toNumber(val)
@@ -27,9 +27,10 @@ movies.forEach(function(m) {
 
   var doc = new Movie(m)
   doc.save(function(err) {
-    if (err) return console.error(err)
     saved += 1
-    console.log('saved', saved)
+    if (saved == total) process.exit()
+    if (err && err.code !== 11000) return console.error(err)
+    // console.log('saved', saved)
   })
 })
 

@@ -1,27 +1,26 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/Users/dguttman/.nvm/v0.10.32/bin/node',
 1 verbose cli   '/Users/dguttman/.nvm/v0.10.32/bin/npm',
-1 verbose cli   'run',
-1 verbose cli   'dev' ]
+1 verbose cli   'start' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.32
-4 verbose run-script [ 'predev', 'dev', 'postdev' ]
-5 info predev react-pivot-motm@1.0.0
-6 info dev react-pivot-motm@1.0.0
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart react-pivot-mean-slides@1.0.0
+6 info start react-pivot-mean-slides@1.0.0
 7 verbose unsafe-perm in lifecycle true
-8 info react-pivot-motm@1.0.0 Failed to exec dev script
-9 error react-pivot-motm@1.0.0 dev: `npm run watch-js & npm run watch-server`
-9 error Exit status 134
-10 error Failed at the react-pivot-motm@1.0.0 dev script.
-10 error This is most likely a problem with the react-pivot-motm package,
+8 info react-pivot-mean-slides@1.0.0 Failed to exec start script
+9 error react-pivot-mean-slides@1.0.0 start: `npm run seed && npm run build-js && node index.js`
+9 error Exit status 1
+10 error Failed at the react-pivot-mean-slides@1.0.0 start script.
+10 error This is most likely a problem with the react-pivot-mean-slides package,
 10 error not with npm itself.
 10 error Tell the author that this fails on your system:
-10 error     npm run watch-js & npm run watch-server
+10 error     npm run seed && npm run build-js && node index.js
 10 error You can get their info via:
-10 error     npm owner ls react-pivot-motm
+10 error     npm owner ls react-pivot-mean-slides
 10 error There is likely additional logging output above.
 11 error System Darwin 13.4.0
-12 error command "/Users/dguttman/.nvm/v0.10.32/bin/node" "/Users/dguttman/.nvm/v0.10.32/bin/npm" "run" "dev"
+12 error command "/Users/dguttman/.nvm/v0.10.32/bin/node" "/Users/dguttman/.nvm/v0.10.32/bin/npm" "start"
 13 error cwd /Users/dguttman/Dropbox/play/test/react-pivot-motm
 14 error node -v v0.10.32
 15 error npm -v 1.4.28

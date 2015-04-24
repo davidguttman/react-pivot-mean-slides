@@ -1,12 +1,15 @@
 {
-  "name": "react-pivot-motm",
+  "name": "react-pivot-mean-slides",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "watch-js": "watchify client/index.js -o public/main.js -dv",
     "watch-server": "supervisor -n exit -i public,client index.js",
-    "dev": "npm run watch-js & npm run watch-server"
+    "build-js": "browserify client/index.js > public/main.js",
+    "start": "npm run seed && npm run build-js && node index.js",
+    "dev": "npm run seed && npm run watch-js & npm run watch-server",
+    "seed": "node script/import.js"
   },
   "author": "David Guttman <david@guttman.io> (http://davidguttman.com/)",
   "license": "MIT",
